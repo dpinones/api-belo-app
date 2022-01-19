@@ -1,0 +1,395 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Swagger Belo Api",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "email": "apiteam@swagger.io"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "host": "localhost:3005",
+    "basePath": "/belo/api/v1/microservices",
+    "tags": [
+        {
+            "name": "Estimation"
+        },
+        {
+            "name": "Order"
+        },
+        {
+            "name": "Health"
+        }
+    ],
+    "schemes": ["http", "https"],
+    "paths": {
+        "/estimations": {
+            "get": {
+                "tags": ["Estimation"],
+                "summary": "Get estimations",
+                "operationId": "getEstimations",
+                "produces": ["application/json"],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Estimation"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid pair"
+                    },
+                    "500": {
+                        "description": "Estimation not found",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseError"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": ["Estimation"],
+                "summary": "Create estimation",
+                "operationId": "createEstimation",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/RequestEstimation"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Estimation"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid pair"
+                    },
+                    "500": {
+                        "description": "Estimation not found",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseError"
+                        }
+                    }
+                }
+            }
+        },
+        "/estimations/{idEstimation}": {
+            "get": {
+                "tags": ["Estimation"],
+                "summary": "Get estimation by idEstimation",
+                "description": "",
+                "operationId": "getEstimationById",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "idEstimation",
+                        "in": "path",
+                        "description": "The name that needs to be fetched. Use user1 for testing. ",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Estimation"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid pair",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseError"
+                        }
+                    },
+                    "500": {
+                        "description": "Estimation not found",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseError"
+                        }
+                    }
+                }
+            }
+        },
+        "/estimations/swap/{idEstimation}": {
+            "post": {
+                "tags": ["Estimation"],
+                "summary": "Make the swap of an estimate",
+                "description": "",
+                "operationId": "makeSwapEstimation",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "idEstimation",
+                        "in": "path",
+                        "description": "ID of estimation that needs to be swap",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Estimation"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid pair"
+                    },
+                    "500": {
+                        "description": "Estimation not found",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseError"
+                        }
+                    }
+                }
+            }
+        },
+        "/orders": {
+            "get": {
+                "tags": ["Order"],
+                "summary": "Get orders",
+                "operationId": "getOrders",
+                "produces": ["application/json"],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Order"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid pair"
+                    },
+                    "500": {
+                        "description": "Estimation not found",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseError"
+                        }
+                    }
+                }
+            }
+        },
+        "/orders/{idOrder}": {
+            "get": {
+                "tags": ["Order"],
+                "summary": "Get order by idOrder",
+                "description": "",
+                "operationId": "getOrderById",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "idOrder",
+                        "in": "path",
+                        "description": "The name that needs to be fetched. Use user1 for testing. ",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Order"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid pair",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseError"
+                        }
+                    },
+                    "500": {
+                        "description": "Estimation not found",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseError"
+                        }
+                    }
+                }
+            }
+        },
+        "/health/ping": {
+            "get": {
+                "tags": ["Health"],
+                "summary": "",
+                "description": "",
+                "operationId": "ping",
+                "produces": ["application/json"],
+                "responses": {
+                    "200": {
+                        "description": "Pong"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Estimation": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "description": "",
+                    "example": "1"
+                },
+                "pair": {
+                    "type": "string",
+                    "description": "",
+                    "example": "BTC-USDT"
+                },
+                "from": {
+                    "type": "integer",
+                    "description": "",
+                    "example": 100000
+                },
+                "to": {
+                    "type": "integer",
+                    "description": "",
+                    "example": 2.3550282485875704
+                },
+                "transactionFee": {
+                    "type": "integer",
+                    "description": "",
+                    "example": 1000.5
+                },
+                "timestampLimit": {
+                    "type": "string",
+                    "description": "",
+                    "example": "2022-01-14T12:03:04.790Z"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "",
+                    "example": "SUCCESS",
+                    "enum": ["EXPIRE", "AWAITING", "SUCCESS"]
+                }
+            }
+        },
+        "Order": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "description": "",
+                    "example": "1"
+                },
+                "pair": {
+                    "type": "string",
+                    "description": "",
+                    "example": "BTC-USDT"
+                },
+                "from": {
+                    "type": "integer",
+                    "description": "",
+                    "example": 100000
+                },
+                "to": {
+                    "type": "integer",
+                    "description": "",
+                    "example": 2.3550282485875704
+                },
+                "transactionFee": {
+                    "type": "integer",
+                    "description": "",
+                    "example": 1000.5
+                },
+                "timestamp": {
+                    "type": "string",
+                    "description": "",
+                    "example": "2022-01-14T12:02:35.222Z"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "",
+                    "example": "SUCCESS",
+                    "enum": ["EXPIRE", "AWAITING", "SUCCESS"]
+                },
+                "orderId": {
+                    "type": "string",
+                    "description": "",
+                    "example": 402190783331311600
+                },
+                "estimationId": {
+                    "type": "integer",
+                    "description": "",
+                    "example": "1"
+                }
+            }
+        },
+        "RequestEstimation": {
+            "type": "object",
+            "properties": {
+                "pair": {
+                    "type": "integer",
+                    "description": "",
+                    "example": "BTC-USDT"
+                },
+                "volume": {
+                    "type": "string",
+                    "description": "",
+                    "example": 200
+                }
+            }
+        },
+        "ResponseError": {
+            "type": "object",
+            "properties": {
+                "errors": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "value": {
+                                "type": "string",
+                                "description": "",
+                                "example": "BTC-USDT2"
+                            },
+                            "msg": {
+                                "type": "string",
+                                "description": "",
+                                "example": "pair does contain invalid value"
+                            },
+                            "param": {
+                                "type": "string",
+                                "description": "",
+                                "example": "pair"
+                            },
+                            "location": {
+                                "type": "string",
+                                "description": "",
+                                "example": "body"
+                            }
+                        }
+                    }
+                }
+            },
+            "xml": {
+                "name": "Estimation"
+            }
+        }
+    },
+    "externalDocs": {
+        "description": "Find out more about Swagger",
+        "url": "http://swagger.io"
+    }
+}

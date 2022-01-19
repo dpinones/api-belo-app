@@ -1,0 +1,164 @@
+{
+    "info": {
+        "_postman_id": "bdfbfb83-30f6-4b84-8676-6ff0b448907e",
+        "name": "BeloApi",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Estimations - list",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:3005/belo/api/v1/microservices/estimations",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "3005",
+                    "path": [
+                        "belo",
+                        "api",
+                        "v1",
+                        "microservices",
+                        "estimations"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Estimations - save",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"pair\": \"BTC-USDT\",\n    \"volume\": 80\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:3005/belo/api/v1/microservices/estimations",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "3005",
+                    "path": [
+                        "belo",
+                        "api",
+                        "v1",
+                        "microservices",
+                        "estimations"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Estimations - getById",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:3005/belo/api/v1/microservices/estimations/1",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "3005",
+                    "path": [
+                        "belo",
+                        "api",
+                        "v1",
+                        "microservices",
+                        "estimations",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Estimations - swap",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:3005/belo/api/v1/microservices/estimations/swap/5",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "3005",
+                    "path": [
+                        "belo",
+                        "api",
+                        "v1",
+                        "microservices",
+                        "estimations",
+                        "swap",
+                        "5"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Orders - list",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:3005/belo/api/v1/microservices/orders",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "3005",
+                    "path": ["belo", "api", "v1", "microservices", "orders"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Orders - getById",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:3005/belo/api/v1/microservices/orders/1",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "3005",
+                    "path": [
+                        "belo",
+                        "api",
+                        "v1",
+                        "microservices",
+                        "orders",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Health",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:3005/belo/api/v1/microservices/health/ping",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "3005",
+                    "path": [
+                        "belo",
+                        "api",
+                        "v1",
+                        "microservices",
+                        "health",
+                        "ping"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
+}
